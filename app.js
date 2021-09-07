@@ -215,11 +215,9 @@ function clickHandler () {
             var [previousDate, previousDaysCount] = previousPalindromeDate(bdayDate);
 
             message1.innerText = "Oops!! Your Birthday is not a palindrome."
-            message2.innerText = 'The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${"nextDaysCount} days.';
-            // "
-            // // . You missed it by " +nextDate[1] + (nextDate[1] === 1) ? " days" : " day."
-            // + \nYou also missed the previous palindrome date " +previousDate[0]+ " by " +previousDate[1]+ "days."
+            message2.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${nextDaysCount} ${nextDaysCount > 1 ? "days" : "day"}. You also missed the previous palindrome date, ${previousDate.day}-${previousDate.month}-${previousDate.year}, by ${previousDaysCount} ${previousDaysCount > 1 ? "days" : "day"}.`;
         }
+
     } else {
         message1.innerText = "Enter a valid date to continue";
     }
