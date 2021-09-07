@@ -59,9 +59,9 @@ function checkPalindromeForAllFormats (date) {
         if (isPalindrome(dateAllFormarts[i])) {
             return allFormats[i];
         }
-
-        return false;
     }
+    return false;
+
 } 
 
 // NEXT PALLINDROME 
@@ -88,18 +88,16 @@ function findNextDay (date) {
 
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    if(checkLeapYear) {
+    if(checkLeapYear(year)) {
         daysInMonth[1] = 29;
     } else {
         daysInMonth[1] = 28;
     }
-
     
     if (day > daysInMonth[month-1]) {
         day = 1;
         month++;
     }
-
 
     if (month > 12) {
         month = 1;
@@ -115,31 +113,79 @@ function findNextDay (date) {
     return nextDay;
 }
 
-function nextPalindromeDate (date) {
-    var numberOfDays = 1;
+function nextPalindromeDate(date) {
+    var numberOfDays = 0;
     var nextDay = findNextDay(date);
 
     while (true) {
 
-        var check = checkPalindromeForAllFormats(nextDay);
+        var checkPalindrome = checkPalindromeForAllFormats(nextDay);
 
-        if (check) {
-            return [numberOfDays, nextDay, check];
-            //here check returns the date format;
+        numberOfDays++
+
+        if (checkPalindrome) {
+            return [nextDay, numberOfDays];
         }
 
-        nextDay = findNextDay(date);
-        numberOfDays++;
+        nextDay = findNextDay(nextDay);
     }
 }
 
+// PREVIOUS PALINDROME
+function findPreviousDay (date) {
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
 
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-//first i need to find the date for next day
-// ani mag ashe khup next i need to find so that i reach the actual date which is a palindrome
-// this will need 2 functions
+    if(checkLeapYear(year)) {
+        daysInMonth[1] = 29;
+    } else {
+        daysInMonth[1] = 28;
+    }
+    
+    if (day < 1) {
+        if (month === 1) {
+            day = daysInMonth[11];
+            month--;
+        } else {
+            day = daysInMonth[month-2];
+            month--;
+        }
+    }
 
+    if (month < 1) {
+        month = 12;
+        year--;
+    }
 
+    var previousDay = {
+        day: day,
+        month: month,
+        year: year
+    }
+
+    return previousDay;
+}
+
+function previousPalindromeDate(date) {
+    var numberOfDays = 0;
+    var previousDay = findPreviousDay(date);
+
+    while (true) {
+
+        var checkPalindrome = checkPalindromeForAllFormats(previousDay);
+
+        numberOfDays++
+
+        if (checkPalindrome) {
+            return [previousDay, numberOfDays];
+        }
+
+        previousDay = findPreviousDay(previousDay);
+    }
+}
 
 const bdayInput = document.querySelector('#input-bday');
 const checkButton = document. querySelector('#button-check');
@@ -159,17 +205,21 @@ function clickHandler () {
             year: Number(bday[0])
         }
 
+        var palindromeCheck = checkPalindromeForAllFormats(bdayDate);
 
-        console.log(findNextDay(bdayDate));
+        if (palindromeCheck) {
+            message1.innerText = "Yayy!! Your Birthday is a palindrome.";
+            message2.innerText = ("The date format we considered is: " +palindromeCheck);
+        } else {
+            var [nextDate, nextDaysCount] = nextPalindromeDate(bdayDate);
+            var [previousDate, previousDaysCount] = previousPalindromeDate(bdayDate);
 
-        // var palindromeCheck = checkPalindromeForAllFormats(bdayDate);
-
-        // if (palindromeCheck) {
-        //     message1.innerText = "Yayy!! Your Birthday is a palindrome.";
-        //     message2.innerText = ("The date format we considered is: " +palindromeCheck);
-        // } else {
-        //     message1.innerText = "Oops!! Your Birthday is not a palindrome."
-        // }
+            message1.innerText = "Oops!! Your Birthday is not a palindrome."
+            message2.innerText = 'The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${"nextDaysCount} days.';
+            // "
+            // // . You missed it by " +nextDate[1] + (nextDate[1] === 1) ? " days" : " day."
+            // + \nYou also missed the previous palindrome date " +previousDate[0]+ " by " +previousDate[1]+ "days."
+        }
     } else {
         message1.innerText = "Enter a valid date to continue";
     }
