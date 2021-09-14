@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+:root {
+    /* fonts */
+    --head-font: 'Permanent Marker', cursive;;
+    --body-font: 'Raleway', sans-serif;
+
+    /* colors */
+    --back: #fffefb;
+    --blue1: #00C9D3;
+    --blue2: #73f3fa;
+    --pink1: #f151b4;
+    --pink2: #fdf4f8;
+    --pink3: #fae8ef;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--back);
+    font-family: var(--body-font);
+    text-align: center;
+}
+
+.container {
+    padding: 1.5rem;
+}
+
+header {
+    background: url(/images/bday.jpg) ;
+    background-size: cover;
+    text-align: center;
+    padding: 3rem;
+    border-bottom: 4px solid var(--blue1);
+}
+
+header h1 {
+    background: var(--pink3) ;
+    opacity: 90%;
+    max-width: fit-content;
+    color: var(--pink1);
+    font-family: var(--head-font);
+    font-size: 35px;
+    letter-spacing: 1px;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+.text {
+    max-width: 600px;
+    color: var(--blue1);
+    padding: 2rem;
+    margin: auto;
+}
+
+.contents {
+    display: block;
+    background-color: var(--pink3);
+    max-width: 500px;   
+    padding: 1.5rem;
+    border-radius: 2rem;
+    margin: auto; 
+}
+
+label {
+    display: block;
+    color: var(--blue1);
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    margin: auto;
+}
+
+input {
+    display: block;
+    background-color: var(--pink2);
+    color: var(--blue1);
+    font-size: 20px;
+    outline: none;
+    padding: 0.5rem 2rem;
+    border: 2px solid var(--blue1);
+    border-radius: 1rem;
+    margin: auto;
+}
+
+button {
+    display: block;
+    background-color: var(--blue1);
+    color: var(--back);
+    font-family: var(--body-font);
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border: 3px solid var(--blue1);
+    border-radius: 2rem;
+    margin: 1.5rem auto;
+    transition: 0.5s ease;
+}
+
+button:hover {
+    background-color: var(--pink2);
+    color: var(--pink1);
+    border-color: var(--pink1);
+}
+
+#message1 {
+    background-color: var(--pink1);
+    color: var(--back);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#message2 {
+    color: var(--blue1);
+    font-weight: bold;
+}
+
+footer {
+    min-width: 100%;
+    background-color: var(--blue1);
+    text-align: center;
+    padding: 1.5rem 0rem 0.3rem 0rem;
+    margin-top: 3rem;
+}
+
+.social-media-title {
+    color: var(--back);
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.social-media a {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-decoration: none;
+}
+
+.github-sourcecode {
+    color: var(--back);
+    font-size: 15px;
+    padding-top: 0.5rem;
+}
+
+.git-repo {
+    color: var(--back);
+}
+
+.git-repo:hover {
+    color: var(--pink1);
+    font-weight: bold;
+}
+
+svg {
+    fill: var(--back);
+    width: 33px;
+    height: 33px;
+}
+
+svg:hover {
+    fill: var(--pink1);
+}
