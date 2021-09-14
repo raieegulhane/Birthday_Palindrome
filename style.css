@@ -9,7 +9,6 @@
     /* colors */
     --back: #fffefb;
     --blue1: #00C9D3;
-    --blue2: #73f3fa;
     --pink1: #f151b4;
     --pink2: #fdf4f8;
     --pink3: #fae8ef;
@@ -126,6 +125,7 @@ footer {
     background-color: var(--blue1);
     text-align: center;
     padding: 1.5rem 0rem 0.3rem 0rem;
+    border-top: 4px solid var(--pink3);
     margin-top: 3rem;
 }
 
