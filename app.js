@@ -187,11 +187,11 @@ function previousPalindromeDate(date) {
     }
 }
 
+////////
 const bdayInput = document.querySelector('#input-bday');
 const checkButton = document. querySelector('#button-check');
 const message1 = document.querySelector('#message1');
 const message2 = document.querySelector('#message2');
-
 
 function clickHandler () {
     var bday = bdayInput.value;

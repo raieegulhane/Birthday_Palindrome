@@ -78,10 +78,11 @@ input {
     background-color: var(--pink2);
     color: var(--blue1);
     font-size: 20px;
-    outline: none;
+    max-width: 50%;
     padding: 0.5rem 2rem;
     border: 2px solid var(--blue1);
     border-radius: 1rem;
+    outline: none;
     margin: auto;
 }
 
@@ -141,6 +142,16 @@ footer {
     text-decoration: none;
 }
 
+svg {
+    fill: var(--back);
+    width: 33px;
+    height: 33px;
+}
+
+svg:hover {
+    fill: var(--pink1);
+}
+
 .github-sourcecode {
     color: var(--back);
     font-size: 15px;
@@ -156,12 +167,8 @@ footer {
     font-weight: bold;
 }
 
-svg {
-    fill: var(--back);
-    width: 33px;
-    height: 33px;
-}
-
-svg:hover {
-    fill: var(--pink1);
+.privacy-note {
+    color: var(--back);
+    font-size: 12px;
+    padding-top: 0.5rem;
 }
