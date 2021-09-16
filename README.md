@@ -8,8 +8,9 @@ DESCRIPTION:
 - 6 date formats are considered, and each one checked to see if it is palindrome or not.
 - If the date is not a palindrome then the next and previous palindromic date is displayed.
 - App is made with VanillaJs and deployed on Netlify.
-
+<br>
 
 APP DESCRIPTION:
 <br>
+![image](https://user-images.githubusercontent.com/64693025/133593755-2e5a66cd-8a30-4025-afa2-e504f96be1d3.png)
 
